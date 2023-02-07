@@ -1,0 +1,40 @@
+
+
+.filme-info {
+    margin-top: 18px;
+    display: flex;
+    flex-direction: column;
+    max-width: 800px;
+    padding: 0 8px;
+}
+
+.filme-info h1 {
+    margin: 16px 0;
+}
+
+.filme-info img {
+    width: 800px;
+    max-width: 100%;
+    max-height: 400px;
+    border-radius: 12px;
+    object-fit: cover;
+}
+
+.filme-info h3 {
+    margin-top: 16px;
+}
+
+.filme-info span{
+    margin: 12px;
+}
+.filme-info strong{
+    height: 100px;
+    width: 100px;
+    border-radius: 50%;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    background-color: aqua;
+    display: flex;
+    flex-direction: column;
+}
