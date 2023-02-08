@@ -1,6 +1,6 @@
 import React from 'react'
 import { useEffect, useState } from 'react'
-import { Link,  useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { useParams } from 'react-router-dom'
 import { toast } from 'react-toastify';
 import api from '../../services/api';
@@ -80,14 +80,16 @@ const Filme = () => {
             <center>
                 <strong>{filme.vote_average.toFixed(1)} / 10</strong>
             </center>
-            <div className='area-buttons'>
-                <button onClick={salvarFilme}>Salvar</button>
-                <Link className='button-trailer'
-                    to={`https://www.youtube.com/results?search_query=${filme.title}+trailer`}
+            <div className="area-buttons">
+                <button onClick={salvarFilme}>Salvar</button>   
+                <a className='button-trailer'
+                    href={`https://www.youtube.com/results?search_query=${filme.title}+trailer`}
                     target='blank'>
                         <h4>Trailer</h4>
-                </Link>
+                </a>
+            
             </div>
+
             
             
                 

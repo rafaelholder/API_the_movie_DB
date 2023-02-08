@@ -41,16 +41,30 @@
     flex-direction: column;
 }
 
-.area-buttons button, 
-.button-trailer {
-    background-color: beige;
-    margin-right: 12px;
-    margin-top: 16px;
-    margin-left: 0;
+
+.area-buttons button{
+    background-color: none;
+    margin: 8px 0;
     font-size: 20px;
     border: 0;
     outline: none;
     padding: 12px;
     border-radius: 4px;
     cursor: pointer;
+}
+.button-trailer {
+    font-size: 20px;
+    align-items: center;
+    margin-top: 16px;
+    border-radius: 8px;
+    padding: 12px;
+    border-radius: 16px;
+    color: red;
+    text-decoration: none;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: 1s;
+}
+.button-trailer:hover{
+    font-size: 28px;
 }
