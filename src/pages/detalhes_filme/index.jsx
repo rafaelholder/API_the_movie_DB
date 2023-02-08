@@ -1,12 +1,15 @@
 import React from 'react'
 import { useEffect, useState } from 'react'
+import { Link,  useNavigate } from 'react-router-dom';
 import { useParams } from 'react-router-dom'
+import { toast } from 'react-toastify';
 import api from '../../services/api';
 
 import './index.css'
 
 const Filme = () => {
     const {id} = useParams();
+    const navigate = useNavigate();
     const [filme, setFilme] = useState([]);
     const [loading, setLoading] = useState(true);
 
@@ -24,8 +27,10 @@ const Filme = () => {
                 setFilme(response.data);
                 setLoading(false);
             })
-            .catch(() => {
-                alert('filme nao existe')
+            .catch(() => { 
+                console.log('Filme não existe');
+                navigate("/", {replace: true});
+                return;
             })
         }
     
@@ -35,7 +40,25 @@ const Filme = () => {
         return() => {
             console.log('component filme detalhes unmount');
         }
-    }, []);
+    }, [navigate, id]);
+
+
+    function salvarFilme(){
+        const minhaLista = localStorage.getItem('@holderFlix');
+
+        let filmesSalvos = JSON.parse(minhaLista) || [];
+
+        const hasFilme = filmesSalvos.some( (filmeSalvo) => filmeSalvo.id === filme.id)
+
+        if(hasFilme){
+            toast.warn("Esse filme já está na sua lista!")
+            return;
+        }
+
+        filmesSalvos.push(filme);
+        localStorage.setItem('@holderFlix', JSON.stringify(filmesSalvos));
+        toast.success("Filme salvo com sucesso!")
+    }
 
     if(loading){
         return(
@@ -54,7 +77,19 @@ const Filme = () => {
             />
             <h3>Sinopse</h3>
             <span>{filme.overview}</span>
-            <strong>{filme.vote_average.toFixed(1)} / 10</strong>
+            <center>
+                <strong>{filme.vote_average.toFixed(1)} / 10</strong>
+            </center>
+            <div className='area-buttons'>
+                <button onClick={salvarFilme}>Salvar</button>
+                <Link className='button-trailer'
+                    to={`https://www.youtube.com/results?search_query=${filme.title}+trailer`}
+                    target='blank'>
+                        <h4>Trailer</h4>
+                </Link>
+            </div>
+            
+            
                 
         </div>
     )

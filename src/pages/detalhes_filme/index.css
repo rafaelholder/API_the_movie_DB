@@ -1,6 +1,7 @@
 
 
 .filme-info {
+    color: black;
     margin-top: 18px;
     display: flex;
     flex-direction: column;
@@ -34,7 +35,22 @@
     text-align: center;
     justify-content: center;
     align-items: center;
-    background-color: aqua;
+    background: linear-gradient( black, rgb(46, 46, 46));
+    color: azure;
     display: flex;
     flex-direction: column;
+}
+
+.area-buttons button, 
+.button-trailer {
+    background-color: beige;
+    margin-right: 12px;
+    margin-top: 16px;
+    margin-left: 0;
+    font-size: 20px;
+    border: 0;
+    outline: none;
+    padding: 12px;
+    border-radius: 4px;
+    cursor: pointer;
 }

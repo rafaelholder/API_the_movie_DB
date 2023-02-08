@@ -3,12 +3,15 @@
 } */
 
 .lista-filme {
+    margin-top: 0;
+    box-sizing: border-box;
+    background-color: rgb(46, 46, 46);
     max-width: 800px;
 }
 
 .lista-filme article {
     width: 100%;
-    background-color: rgba(0, 0, 0, 0.726);
+    /* background-color: rgba(0, 0, 0, 0.726); */
     padding: 16px;
 }
 .lista-filme strong{
